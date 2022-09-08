@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production")
 
 // ------ Routes ------
 
-app.get("/", (req, res) => {
+app.get("/api/hello", (req, res) => {
   res.send("Hello from server !");
 });
 
