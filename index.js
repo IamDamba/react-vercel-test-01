@@ -24,7 +24,7 @@ app.get("/api/hello", (req, res) => {
 if (process.env.NODE_ENV === "production")
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/client/build", "index.html"), (err) => {
-      if (err) res.status(500).send(err);
+      if (err) res.status(400).send(err);
     });
   });
 
