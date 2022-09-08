@@ -12,8 +12,7 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
-if (process.env.NODE_ENV === "production")
-  app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // ------ Routes ------
 
@@ -21,12 +20,11 @@ app.get("/api/hello", (req, res) => {
   res.send("Hello from server !");
 });
 
-if (process.env.NODE_ENV === "production")
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "/client/build", "index.html"), (err) => {
-      if (err) res.status(400).send(err);
-    });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"), (err) => {
+    if (err) res.status(400).send(err);
   });
+});
 
 // ------ Listen ------
 
