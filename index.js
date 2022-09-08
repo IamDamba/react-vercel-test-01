@@ -21,6 +21,13 @@ app.get("/api/hello", (req, res) => {
   res.send("Hello from server !");
 });
 
+if (process.env.NODE_ENV === "production")
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/client/build", "index.html"), (err) => {
+      if (err) res.status(500).send(err);
+    });
+  });
+
 // ------ Listen ------
 
 app.listen(port, () => {
