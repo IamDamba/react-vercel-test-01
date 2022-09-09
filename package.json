@@ -10,7 +10,7 @@
     "dev": "nodemon index.js",
     "install-client": "cd client && yarn install",
     "build-client": "cd client && yarn build",
-    "vercel-build": "yarn install_client && yarn build-client"
+    "vercel-build": "yarn install-client && yarn build-client"
   },
   "dependencies": {
     "cors": "^2.8.5",
