@@ -8,7 +8,9 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "vercel-build": "cd client && yarn build"
+    "install-client": "cd client && yarn install",
+    "build-client": "cd client && yarn build",
+    "vercel-build": "yarn install_client && yarn build-client"
   },
   "dependencies": {
     "cors": "^2.8.5",
